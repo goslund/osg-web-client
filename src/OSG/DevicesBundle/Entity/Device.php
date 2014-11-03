@@ -12,6 +12,7 @@ use OSG\ArduinosBundle\Entity\Arduino as Arduino;
  */
 class Device
 {
+
     /**
     * @ORM\ManyToOne(targetEntity="OSG\ArduinosBundle\Entity\Arduino", inversedBy="devices")
     * @ORM\JoinColumn(name="arduino_id", referencedColumnName="id")
@@ -33,7 +34,6 @@ class Device
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
 
     /**
      * Get id
@@ -68,18 +68,18 @@ class Device
         return $this->name;
     }
 
-    /**
-     * Set arduino
-     *
-     * @param \OSG\DevicesBundle\Entity\Arduino $arduino
-     * @return Device
-     */
-    public function setArduino(\OSG\DevicesBundle\Entity\Arduino $arduino = null)
-    {
-        $this->arduino = $arduino;
+    // /**
+    //  * Set arduino
+    //  *
+    //  * @param \OSG\ArduinoBundle\Entity\Arduino $arduino
+    //  * @return \OSG\ArduinosBundle\EntityArduino
+    //  */
+    // public function setArduino(\OSG\DevicesBundle\Entity\Arduino $arduino = null)
+    // {
+    //     // $this->arduino = $arduino;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Get arduino
