@@ -11,13 +11,18 @@
         "symfony/symfony": "2.5.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
+        "symfony/doctrine-bridge": "2.6.*@dev",
+        "symfony/form": "2.6.*@dev",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "knplabs/knp-menu-bundle": "2.0.0",
+        "sonata-project/admin-bundle": "2.3.0",
+        "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

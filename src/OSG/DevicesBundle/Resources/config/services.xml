@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="osg.devices.list" class="OSG\DevicesBundle\Block\DevicesBlockService">
+            <tag name="sonata.block" />
+            <argument>osg.devices.list</argument>
+            <argument type="service" id="templating" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+
+        </service>
+<!-- 
+        <service
+            id="osg.arduino.form.type.device"
+            class="OSG\DevicesBundle\Form\DeviceType">
+
+            <tag name="form.type" alias="device" />
+        </service> -->
+        
+
+    </services>
+
+
+    <!--
+    <services>
+        <service id="osg_devices.example" class="OSG\DevicesBundle\Example">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+</container>

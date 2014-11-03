@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sonata.admin.arduino" class="OSG\ArduinosBundle\Admin\ArduinoAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Content" label="Arduino"/>
+            <argument />
+            <argument>OSG\ArduinosBundle\Entity\Arduino</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>OSGArduinosBundle</argument>
+            </call>
+        </service>
+
+        <!-- <service>
+
+        </service> -->
+
+        <service id="osg.arduinos.list" class="OSG\ArduinosBundle\Block\ArduinosBlockService">
+            <tag name="sonata.block" />
+            <argument>osg.arduinos.list</argument>
+            <argument type="service" id="templating" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+
+        </service>
+
+        <service id="osg.arduinos.edit" class="OSG\ArduinosBundle\Block\ArduinosEditBlockService">
+            <tag name="sonata.block" />
+            <argument>osg.arduinos.edit</argument>
+            <argument type="service" id="templating" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument></argument>
+        </service>
+
+        <service id="osg.arduinos.show" class="OSG\ArduinosBundle\Block\ArduinosShowBlockService">
+            <tag name="sonata.block" />
+            <argument>osg.arduinos.show</argument>
+            <argument type="service" id="templating" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument></argument>
+        </service>
+    </services>
+
+    <!--
+    <services>
+        <service id="osg_arduinos.example" class="OSG\ArduinosBundle\Example">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+</container>

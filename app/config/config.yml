@@ -70,3 +70,30 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.block.service.arduino_form:
+        osg.arduinos.list:
+        osg.arduinos.edit:
+        osg.arduinos.show:
+        
+        osg.devices.list:
+
+        # Your other blocks
+
+
+services:
+    osg.arduino.form.type.arduino:
+        class: OSG\ArduinosBundle\Form\ArduinoType
+        tags:
+            - { name: form.type, alias: arduino }
+    
+    osg.arduino.form.type.device:
+        class: OSG\DevicesBundle\Form\DeviceType
+        tags:
+            - { name: form.type, alias: device }

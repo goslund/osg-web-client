@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block subnav %}
+	{{ knp_menu_render('OSGHomePageBundle:ControlPanelBuilder:controlPanelMenu', {"currentClass" : "active", "name" : "Control Panel Menu"}) }}
+{% endblock %}
+
+{% block body %}
+<div class="col-md-12">
+	<div class="panel panel-default">
+		{{ sonata_block_render( {'type' : 'osg.devices.list'} ) }}
+        <div class="panel-heading">Dev</div>
+        <div class="panel-body">
+        	<button> Cycle LED </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

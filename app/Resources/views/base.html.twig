@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% stylesheets 
+            '@OSGHomePageBundle/Resources/public/bootstrap/dist/css/bootstrap.css'
+            '@OSGHomePageBundle/Resources/public/bootstrap/dist/css/bootstrap-theme.css'            
+            '@OSGHomePageBundle/Resources/public/css/navigation.css'            
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% javascripts
+        
+            '@OSGHomePageBundle/Resources/public/js/angular.js'
+            '@OSGHomePageBundle/Resources/public/js/jquery-2.1.1.min.js'
+            '@OSGHomePageBundle/Resources/public/js/ui-bootstrap-tpls-0.11.2.js'
+            '@OSGHomePageBundle/Resources/public/bootstrap/dist/js/bootstrap.min.js'
+         %}
+            <script type="text/javascripts" src="{{ asset_url }}"></script>
+        {% endjavascripts%} 
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container12">
+            <nav class="navbar navbar-default" role="tablist">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ url('osg_homepage_default_index') }}">The Open Source Garden</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li role="presentation"><a href="{{ url('osg_homepage_controlpanel_index') }}">ControlPanel</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <row>
+            <div class="col-md-12">
+                {% block subnav %}{% endblock %}
+            </div>
+        </row>
+        
+    </nav>
+        </div>
+        <div class="container8">
+        <row>
+        {# <div class="container12" style="background:#aca"> #}
+            <div class="col-md-12">
+                {% block body %}{% endblock %}
+            </div>  
+            
+        {# </div> #}
+        </row>
+        </div>
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block subnav %}
+	{{ knp_menu_render('OSGHomePageBundle:ControlPanelBuilder:controlPanelMenu', {"currentClass" : "active", "name" : "Control Panel Menu"}) }}
+{% endblock %}
+
+

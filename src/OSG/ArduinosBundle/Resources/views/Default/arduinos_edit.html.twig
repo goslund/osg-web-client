@@ -1,0 +1,14 @@
+{% extends "OSGHomePageBundle:ControlPanel:index.html.twig" %}
+
+{% block body %}
+    <div class="col-md-12" style="margin-top:15px">
+		<div class="panel panel-default">
+			<div class="panel-body">
+			{{ sonata_block_render( {'type' : 'osg.arduinos.edit', 'settings': 
+				{
+					'arduino_id' : id			}
+			 }) }}
+			</div>
+	    </div>
+	</div>
+{% endblock %}

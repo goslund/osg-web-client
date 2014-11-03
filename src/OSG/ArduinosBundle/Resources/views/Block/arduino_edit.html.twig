@@ -1,0 +1,95 @@
+{% block body %}
+
+<row>
+        <div class="col-md-12">
+            <ul class="nav nav-pills record_actions">
+                <li>
+                <button class="btn btn-default">
+                <a href="{{ path('osg_arduinos_default_index') }}">
+                    List
+                </a>
+                </button>
+            </li>
+            
+        </ul>
+        </div>
+    </row>
+    <row>
+        <div class="col-md-12">
+            <h1>Arduino edit</h1>
+
+            {{ form_start(edit_form, {'action' : path('control-panel_arduino_edit', {'id': entity.id, 'active' : 1}), 'method' : 'POST' }) }}
+
+            <div class="input-group">
+                <span>{{ form_label(edit_form.arduino.name) }}</span>
+                {{ form_widget(edit_form.arduino.name, {'attr': { 'class' : 'form-control', 'placeholder' : 'Arduino Name', 'value' : entity.devices }}) }}  
+            </div>
+
+            <div class="input-group">
+                <span>{{ form_label(edit_form.arduino.ip_address) }}</span>
+                {{ form_widget(edit_form.arduino.ip_address, {'attr': { 'class' : 'form-control', 'placeholder' : '192.168.1.1', 'value' : entity.devices }}) }}  
+            </div>
+
+            <div class="panel panel-default" style="margin-top: 15px">
+                <div class="panel-heading">
+                    Associated Devices
+                </div>
+                <table class="table table-striped records_list">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for device in edit_form.devices %}
+                        <tr>
+                            <td><a href="{{ path('control-panel_arduino_show', { 'id': entity.id }) }}">    {{ entity.id }}
+                            </a>
+                            </td>
+                            <td>{{ entity.name }}</td>
+                            <td>
+                            <ul class="listnav" >
+                                <li>
+                                    <a href="{{ path('control-panel_arduino_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('admin_osg_arduinos_arduino_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <ul>
+                    <li>
+                        <a href="{{ path('control-panel_arduino_new') }}">
+                            Create a new entry
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="input-group" style="margin-top: 15px">
+                <span>{{ form_widget(edit_form.submit, {'attr' : {'class' : 'btn btn-success'}} ) }}</span>
+                <span>
+                    <button class="btn btn-default">
+                        <a href="{{ path('osg_arduinos_default_index') }}">
+                            List
+                        </a>
+                    </button>
+                </span>
+                <span>
+                    {{ form_widget(edit_form.delete, {'attr' : { 'class': 'btn btn-danger'}}) }}
+                </span>
+            </div>
+        </form>
+
+        </div>
+    </row>
+{% endblock %}

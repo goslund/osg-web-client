@@ -1,0 +1,87 @@
+{% block body %}
+<row>
+    <div class="col-md-12">
+        <ul class="nav nav-pills record_actions">
+            <li>
+            <button class="btn btn-default">
+            <a href="{{ path('osg_arduinos_default_index') }}">
+                List
+            </a>
+            </button>
+            </li>
+    </ul>
+    </div>
+    
+</row>
+<row>
+    <div class="col-md-12" style="margin-top:15px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Arduino '{{ entity.name }}'</h4>
+            </div>
+            <div class="container panel-body">
+                <div class="col-sm-4">
+                    <div class="">
+                        Controller id: {{ entity.id }}<br/>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                Controller Name: {{ entity.name }}<br />           
+                </div>
+
+                <div class="col-sm-4">
+                    Controler Ip Address: {{ entity.id }}<br />           
+                </div>
+            </div>
+            <div class = "panel panel-default">
+                <div class="panel-heading">
+                    Associated Devices
+                </div>
+                <div class="panel-body">
+                
+                    <table class="table table-striped records_list">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for device in edit_form.devices %}
+                            <tr>
+                                <td><a href="{{ path('control-panel_arduino_show', { 'id': entity.id }) }}">    {{ entity.id }}
+                                </a>
+                                </td>
+                                <td>{{ entity.name }}</td>
+                                <td>
+                                <ul class="listnav" >
+                                    <li>
+                                        <a href="{{ path('control-panel_arduino_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_osg_arduinos_arduino_edit', { 'id': entity.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li>
+                        <a href="{{ path('control-panel_arduino_new') }}">
+                            Create a new entry
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class="container"
+        </div>
+    </div>
+</row>
+{% endblock %}
