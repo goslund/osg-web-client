@@ -37,7 +37,7 @@ class DevicesBlockService extends BaseBlockService
         $resolver->setDefaults(array(
             'url'      => false,
             'title'    => 'Insert the rss title',
-            'template' => 'OSGArduinosBundle:Block:arduino_list.html.twig',
+            'template' => 'OSGDevicesBundle:Default:devices_list.html.twig',
         ));
     }
 
