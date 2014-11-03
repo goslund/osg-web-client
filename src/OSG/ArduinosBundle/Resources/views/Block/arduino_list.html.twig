@@ -23,7 +23,7 @@
 
         <tbody>
         {% for entity in entities %}
-            
+            {{ dump(entity) }}
             <tr>
                 <td><a href="{{ path('control-panel_arduino_show', { 'id': entity.id }) }}">    {{ entity.id }}
                 </a>
