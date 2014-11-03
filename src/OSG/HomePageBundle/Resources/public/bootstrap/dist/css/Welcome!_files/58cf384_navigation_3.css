@@ -1,0 +1,14 @@
+/*
+Navigation.css
+*/
+
+ul.listnav {
+	margin: 0px;
+	padding: 0px;
+	list-style-image: none;
+}
+
+ul.listnav > li {
+	display: inline;
+	padding-right: 5px;
+}
